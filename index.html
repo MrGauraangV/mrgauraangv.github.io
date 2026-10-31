@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Academic website of Gauraang Varshney, M.Sc. Physics student at IIT Roorkee, interested in computational astrophysics.">
+<title>Gauraang Varshney | Physics & Astrophysics</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg: #0b1120;
+  --surface: #111b2e;
+  --surface2: #162238;
+  --text: #e8edf5;
+  --muted: #9baac0;
+  --accent: #75b8ff;
+  --border: rgba(148,163,184,.16);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behaviour: smooth; scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.75;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(1080px, 88%);
+  margin: auto;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(11,17,32,.91);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  font-family: Manrope, sans-serif;
+  font-weight: 800;
+  font-size: 23px;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 26px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--muted);
+  font-size: 13px;
+  transition: .2s;
+}
+
+.nav-links a:hover { color: var(--accent); }
+
+.hero {
+  min-height: 580px;
+  display: flex;
+  align-items: center;
+  padding: 85px 0;
+  background:
+    radial-gradient(ellipse at 85% 25%, rgba(49,105,171,.15), transparent 42%),
+    radial-gradient(ellipse at 15% 85%, rgba(44,76,130,.12), transparent 40%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.5fr .75fr;
+  gap: 65px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 22px;
+}
+
+h1, h2, h3 {
+  font-family: Manrope, sans-serif;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(38px, 6vw, 62px);
+  letter-spacing: -2px;
+  margin-bottom: 18px;
+}
+
+.hero h1 span { color: var(--accent); }
+
+.subtitle {
+  color: #c2ccda;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.affiliation {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.intro {
+  max-width: 570px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 20px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: #367fc5;
+  border-color: #367fc5;
+  color: white;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn-secondary:hover { border-color: var(--accent); }
+
+.photo-frame {
+  width: 100%;
+  max-width: 290px;
+  aspect-ratio: 4 / 5;
+  border: 1px solid rgba(117,184,255,.4);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--surface2);
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  margin-left: auto;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+section { padding: 85px 0; scroll-margin-top: 75px; }
+
+section:nth-of-type(even) { background: rgba(255,255,255,.015); }
+
+.section-label {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 31px;
+  margin-bottom: 30px;
+  letter-spacing: -.7px;
+}
+
+.about-text {
+  max-width: 790px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(117,184,255,.5);
+}
+
+.card-icon {
+  color: var(--accent);
+  font-size: 23px;
+  margin-bottom: 12px;
+}
+
+.card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.tag {
+  padding: 4px 10px;
+  border-radius: 5px;
+  background: rgba(117,184,255,.09);
+  color: #a9d3ff;
+  font-size: 11px;
+}
+
+.timeline {
+  border-left: 1px solid rgba(117,184,255,.4);
+  padding-left: 25px;
+  margin-left: 6px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -31px;
+  top: 8px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.timeline-item h3 { font-size: 17px; margin-bottom: 4px; }
+.timeline-item .date { color: var(--accent); font-size: 12px; }
+.timeline-item p { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill {
+  border: 1px solid var(--border);
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: #c5d0df;
+  background: var(--surface);
+  font-size: 13px;
+}
+
+.contact-box {
+  padding: 35px;
+  background: linear-gradient(120deg, #142b46, #111b2e);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.contact-box p { color: var(--muted); margin: 12px 0 22px; }
+
+footer {
+  padding: 25px 0;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media(max-width: 750px) {
+  .nav-inner { flex-direction: column; padding: 15px 0; }
+  .nav-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .hero { padding: 65px 0; }
+  .hero-grid { grid-template-columns: 1fr; gap: 35px; }
+  .photo-frame { margin: 0; width: 190px; }
+  .cards { grid-template-columns: 1fr; }
+  section { padding: 65px 0; }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">GV.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Physics · Astrophysics</div>
+      <h1>Gauraang <span>Varshney</span></h1>
+      <p class="subtitle">M.Sc. Physics Student</p>
+      <p class="affiliation">Indian Institute of Technology Roorkee</p>
+      <p class="intro">
+        I am interested in computational astrophysics, particularly
+        the dynamics of solids in protoplanetary discs. My current
+        research explores how turbulence influences dust evolution,
+        growth and fragmentation in planet-forming environments.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#research">Explore my research</a>
+        <a class="btn btn-secondary" href="#contact">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="photo-frame">
+      <img src="profile.jpg" alt="Portrait of Gauraang Varshney">
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="container">
+    <div class="section-label">Introduction</div>
+    <h2 class="section-title">About me</h2>
+    <p class="about-text">
+      I am currently pursuing an M.Sc. in Physics at the Indian
+      Institute of Technology Roorkee, India. My academic interests
+      lie at the intersection of astrophysical fluid dynamics,
+      numerical modelling and planet formation.
+      <br><br>
+      I enjoy working with computational methods to investigate
+      physical processes in astrophysical environments. I am
+      particularly interested in understanding the role of
+      turbulence in shaping the evolution of solids in
+      protoplanetary discs.
+    </p>
+  </div>
+</section>
+
+<section id="research">
+  <div class="container">
+    <div class="section-label">Scientific interests</div>
+    <h2 class="section-title">Research interests</h2>
+
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">✧</div>
+        <h3>Protoplanetary Discs</h3>
+        <p>Dust evolution, coagulation, fragmentation and the physical processes governing planet formation.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">≈</div>
+        <h3>Astrophysical Turbulence</h3>
+        <p>Turbulent transport, gas–dust interactions and the influence of fluid instabilities on astrophysical systems.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⌘</div>
+        <h3>Computational Astrophysics</h3>
+        <p>Numerical modelling of astrophysical systems using differential equations and computational techniques.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">◌</div>
+        <h3>Planet Formation</h3>
+        <p>Physical mechanisms governing the growth and evolution of solids in planet-forming environments.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="container">
+    <div class="section-label">Current work</div>
+    <h2 class="section-title">Research projects</h2>
+
+    <div class="card">
+      <div class="section-label">M.Sc. Research Project</div>
+      <h3>Turbulence of Dust in Protoplanetary Discs</h3>
+      <p>
+        Investigating the evolution of dust in protoplanetary discs,
+        with an emphasis on the competition between coagulation,
+        fragmentation and turbulent transport.
+        Developing a vertically resolved, multi-species dust
+        coagulation model to study how the vertical structure of
+        a disc influences grain growth.
+      </p>
+      <div class="tags">
+        <span class="tag">Dust coagulation</span>
+        <span class="tag">Turbulence</span>
+        <span class="tag">Numerical modelling</span>
+        <span class="tag">ODEs</span>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:18px">
+      <div class="section-label">Observational Astronomy</div>
+      <h3>Variable Stars in NGC 2506</h3>
+      <p>
+        Developed a differential photometry pipeline for time-series
+        observations obtained with the 3.6-m Devasthal Optical
+        Telescope. Applied Lomb–Scargle periodograms and Box Least
+        Squares to investigate stellar variability, with
+        classifications supported by TESS and Gaia data.
+      </p>
+      <div class="tags">
+        <span class="tag">ARIES</span>
+        <span class="tag">Time-series analysis</span>
+        <span class="tag">Photometry</span>
+        <span class="tag">TESS</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Academic background</div>
+    <h2 class="section-title">Education & experience</h2>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="date">Current</div>
+        <h3>M.Sc. Physics — IIT Roorkee</h3>
+        <p>Graduate studies in Physics, with research focused on computational astrophysics and protoplanetary discs.</p>
+      </div>
+
+      <div class="timeline-item">
+        <div class="date">Winter Research Internship</div>
+        <h3>Aryabhatta Research Institute of Observational Sciences (ARIES)</h3>
+        <p>Worked on time-series analysis of variable stars in the open cluster NGC 2506 under Dr. Yogesh Chandra Joshi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Tools & methods</div>
+    <h2 class="section-title">Technical skills</h2>
+
+    <div class="skill-list">
+      <span class="skill">Python</span>
+      <span class="skill">C / C++</span>
+      <span class="skill">NumPy</span>
+      <span class="skill">SciPy</span>
+      <span class="skill">Matplotlib</span>
+      <span class="skill">Pandas</span>
+      <span class="skill">Astropy</span>
+      <span class="skill">Athena++</span>
+      <span class="skill">Numerical ODEs</span>
+      <span class="skill">Finite Difference Methods</span>
+      <span class="skill">Numerical Simulations</span>
+      <span class="skill">Time-series Analysis</span>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's connect.</h2>
+      <p>
+        I welcome academic discussions, research opportunities
+        and conversations about astrophysics.
+      </p>
+      <a class="btn btn-primary" href="mailto:YOUR_EMAIL_HERE">Email me</a>
+      <a class="btn btn-secondary" href="https://github.com/mrgauraangv" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Gauraang Varshney · Built with GitHub Pages
+  </div>
+</footer>
+
+</body>
+</html>
